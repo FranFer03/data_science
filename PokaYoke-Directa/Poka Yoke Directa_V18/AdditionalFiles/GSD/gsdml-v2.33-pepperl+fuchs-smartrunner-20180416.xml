@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-V2.33.xsd">
+	<ProfileHeader>
+		<ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+		<ProfileRevision>1.00</ProfileRevision>
+		<ProfileName>Device Profile for PROFINET Devices</ProfileName>
+		<ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>4</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>GSDML</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+	<ProfileBody>
+		<DeviceIdentity VendorID="0x005D" DeviceID="0x1008">
+			<InfoText TextId="DevDescription"/>
+			<VendorName Value="Pepperl+Fuchs GmbH"/>
+		</DeviceIdentity>
+		<DeviceFunction>
+			<Family MainFamily="Gateway" ProductFamily="SmartRunner"/>
+		</DeviceFunction>
+		<ApplicationProcess>
+			<DeviceAccessPointList>
+				<DeviceAccessPointItem ID="DAP 2P V3.0" ModuleIdentNumber="0xA0000000" PNIO_Version="V2.33" PhysicalSlots="0..4" MinDeviceInterval="128" ImplementationType="UNIGATE" DNS_CompatibleName="smart-runner" FixedInSlots="0" ObjectUUID_LocalIndex="1" NameOfStationNotTransferable="true" AddressAssignment="DCP;LOCAL" DeviceAccessSupported="false" CheckDeviceID_Allowed="true" MultipleWriteSupported="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2"> 
+					<ModuleInfo>
+						<Name TextId="DevName2P"/>
+						<InfoText TextId="DevDescription"/>
+						<VendorName Value="Pepperl+Fuchs"/>
+						<OrderNumber Value="310754"/>
+						<HardwareRelease Value="3"/>
+						<SoftwareRelease Value="V3.1"/>
+					</ModuleInfo>
+					<CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="III"/>
+					<SubslotList>
+  						<SubslotItem TextId="DAP_SS_If" SubslotNumber="32768"/> 
+  						<SubslotItem TextId="DAP_SS_If_P1" SubslotNumber="32769"/> 
+  						<SubslotItem TextId="DAP_SS_If_P2" SubslotNumber="32770"/> 
+  					</SubslotList>
+					<IOConfigData MaxInputLength="1024" MaxOutputLength="1024"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="BIDIR1" AllowedInSlots="1..4"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="DAP 2P V3.0" SubmoduleIdentNumber="0x00000001" Writeable_IM_Records="1 2 3 4" Max_iParameterSize="237" MayIssueProcessAlarm="true">
+							<IOData/>
+							<RecordDataList/>
+							<ModuleInfo>
+							  <Name TextId="DevName2P"/> 
+							  <InfoText TextId="DevDescription"/> 
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+	                    <InterfaceSubmoduleItem ID="IDS_4I" SubslotNumber="32768" SubmoduleIdentNumber="0x0002" TextId="DAP_InterfaceModule" SupportedRT_Classes="RT_CLASS_1" SupportedProtocols="SNMP;LLDP" PTP_BoundarySupported="true" DCP_BoundarySupported="true">
+							<ApplicationRelations NumberOfAR="1" StartupMode="Legacy;Advanced">
+								<TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+							</ApplicationRelations>							
+            	        </InterfaceSubmoduleItem>
+                	    <PortSubmoduleItem ID="IDS_4P1" SubslotNumber="32769" SubmoduleIdentNumber="0x0003" MAUType="100BASETXFD" TextId="DAP_If_Port1" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down">
+							<MAUTypeList>
+								<MAUTypeItem Value="16"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+                    	<PortSubmoduleItem ID="IDS_4P2" SubslotNumber="32770" SubmoduleIdentNumber="0x0003" MAUType="100BASETXFD" TextId="DAP_If_Port2" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down">
+							<MAUTypeList>
+								<MAUTypeItem Value="16"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+                 	</SystemDefinedSubmoduleList>
+					<Graphics>
+						<GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_1"/>
+					</Graphics>
+				</DeviceAccessPointItem>
+			</DeviceAccessPointList>
+			<ModuleList>
+				<ModuleItem ID="BIDIR1" ModuleIdentNumber="0x00180006">
+					<ModuleInfo CategoryRef="BIDIR Module1">
+						<Name TextId="BIDIR1"/>
+						<InfoText TextId="BIDIR1"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="IDS_1" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+							<IOData>
+								<Input Consistency="Item consistency">
+									<DataItem DataType="OctetString" Length="16" TextId="IDT_Input16"/>
+									<DataItem DataType="OctetString" Length="8" TextId="IDT_Input8"/>
+								</Input>
+								<Output Consistency="Item consistency">
+									<DataItem DataType="OctetString" Length="2" TextId="IDT_Output_Trigger"/>
+									<DataItem DataType="OctetString" Length="2" TextId="IDT_Output_Teach"/>
+									<DataItem DataType="OctetString" Length="2" TextId="IDT_Output_Profil"/>
+								</Output>
+							</IOData>
+							<RecordDataList/>
+							<ModuleInfo>
+								<Name TextId="BIDIR1"/>
+								<InfoText TextId="BIDIR1"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+			</ModuleList>
+			<ValueList>
+				<ValueItem ID="DiagSysError">
+					<Assignments>
+						<Assign TextId="SYSERR_NO_ERROR" Content="0"/>
+						<Assign TextId="SYSERR_HW_FAULT" Content="1"/>
+						<Assign TextId="SYSERR_EEROM" Content="2"/>
+						<Assign TextId="SYSERR_INT_MEM" Content="3"/>
+						<Assign TextId="SYSERR_FB_HW" Content="4"/>
+						<Assign TextId="SYSERR_SCRIPT" Content="5"/>
+						<!-- Reserved -->
+						<Assign TextId="SYSERR_RS_TX_OF" Content="7"/>
+						<Assign TextId="SYSERR_RS_RX_OF" Content="8"/>
+						<Assign TextId="SYSERR_RS_TO" Content="9"/>
+						<Assign TextId="SYSERR_FB" Content="10"/>
+						<Assign TextId="SYSERR_RS_PoFC" Content="11"/>
+						<!-- Reserved -->
+						<Assign TextId="SYSERR_FB_CONF" Content="13"/>
+						<Assign TextId="SYSERR_FB_OF" Content="14"/>
+						<!-- Reserved -->
+					</Assignments>
+				</ValueItem>
+			</ValueList>
+			<UnitDiagTypeList>
+				<UnitDiagTypeItem UserStructureIdentifier="218">
+					<Name TextId="SystemErrorText"/>
+					<Ref TextId="ErrorNumberText" DataType="Unsigned8" ByteOffset="0" DefaultValue="0" ValueItemTarget="DiagSysError"/>
+					<Ref TextId="DetailErrorText" DataType="Unsigned16" ByteOffset="1" DefaultValue="0"/>
+				</UnitDiagTypeItem>
+			</UnitDiagTypeList>
+			<GraphicsList>
+				<GraphicItem ID="ID_Graph_1" GraphicFile="GSDML-005D-1008-SmartRunner"/>
+			</GraphicsList>
+			<CategoryList>
+				<CategoryItem ID="IN Module" TextId="IN Module"/>
+				<CategoryItem ID="OUT Module" TextId="OUT Module"/>
+				<CategoryItem ID="BIDIR Module1" TextId="BIDIR Module1"/>
+				<CategoryItem ID="Other Module" TextId="Other Module"/>
+			</CategoryList>
+			<ExternalTextList>
+				<PrimaryLanguage>
+					<!--Error-Handling-->
+					<Text TextId="SystemErrorText" Value="System Error"/>
+					<Text TextId="ErrorNumberText" Value="Error Code:"/>
+					<Text TextId="DetailErrorText" Value="Detail Error Code:"/>
+					<Text TextId="SYSERR_NO_ERROR" Value="No error"/>
+					<Text TextId="SYSERR_HW_FAULT" Value="Hardware fault"/>
+					<Text TextId="SYSERR_EEROM" Value="EEROM error"/>
+					<Text TextId="SYSERR_INT_MEM" Value="Internal memory error"/>
+					<Text TextId="SYSERR_FB_HW" Value="PROFINET hardware error"/>
+					<Text TextId="SYSERR_SCRIPT" Value="Script error"/>
+					  <!-- Reserved -->
+					<Text TextId="SYSERR_RS_TX_OF" Value="RS send buffer overflow"/>
+					<Text TextId="SYSERR_RS_RX_OF" Value="RS receive buffer overflow"/>
+					<Text TextId="SYSERR_RS_TO" Value="RS timeout"/>
+					<Text TextId="SYSERR_FB" Value="General PROFINET error"/>
+					<Text TextId="SYSERR_RS_PoFC" Value="RS parity or frame check error"/>
+					  <!-- Reserved -->
+					<Text TextId="SYSERR_FB_CONF" Value="PROFINET configuration error"/>
+					<Text TextId="SYSERR_FB_OF" Value="PROFINET buffer overflow"/>
+					  <!-- Reserved -->
+					<!--Identification-->
+					<Text TextId="DevName2P" Value="SmartRunner"/>
+					<Text TextId="DevDescription" Value="SmartRunner(RS485) to PROFINET gateway"/>
+					<!-- PDEV/Interface -->
+					<Text TextId="DAP_SS_If" Value="X3"/>
+					<Text TextId="DAP_SS_If_P1" Value="P1"/>
+					<Text TextId="DAP_SS_If_P2" Value="P2"/>
+					<Text TextId="DAP_InterfaceModule" Value="PN Interface"/>
+					<Text TextId="DAP_If_Port1" Value="Port 1"/>
+					<Text TextId="DAP_If_Port2" Value="Port 2"/>
+					<!--Module category-->
+					<Text TextId="IN Module" Value="Input modules"/>
+					<Text TextId="OUT Module" Value="Output modules"/>
+					<Text TextId="BIDIR Module1" Value="Smart Runner"/>
+					<Text TextId="Other Module" Value="Other modules"/>
+					<!--Modules-->
+					<Text TextId="BIDIR1" Value="Head Address 1"/>
+					<Text TextId="IDT_Input16" Value="IN Result Data"/>
+					<Text TextId="IDT_Input8" Value="IN Result Teach"/>
+					<Text TextId="IDT_Output_Trigger" Value="OUT Trigger (2Byte)"/>
+					<Text TextId="IDT_Output_Teach" Value="OUT Teach (2Byte)"/>
+					<Text TextId="IDT_Output_Profil" Value="OUT Choose Profil (2Byte)"/>
+				</PrimaryLanguage>
+				<Language xml:lang="de">
+					<!--Error-Handling-->
+					<Text TextId="SystemErrorText" Value="Systemfehler"/>
+					<Text TextId="ErrorNumberText" Value="Fehlernummer:"/>
+					<Text TextId="DetailErrorText" Value="Detail-Fehlercode:"/>
+					<Text TextId="SYSERR_NO_ERROR" Value="Kein Fehler"/>
+					<Text TextId="SYSERR_HW_FAULT" Value="Hardware-Fehler"/>
+					<Text TextId="SYSERR_EEROM" Value="EEROM-Fehler"/>
+					<Text TextId="SYSERR_INT_MEM" Value="Interner Speicher Fehler"/>
+					<Text TextId="SYSERR_FB_HW" Value="PROFINET Hardware-Fehler"/>
+					<Text TextId="SYSERR_SCRIPT" Value="Skriptfehler"/>
+					  <!-- Reserved -->
+					<Text TextId="SYSERR_RS_TX_OF" Value="RS Sendepufferüberlauf"/>
+					<Text TextId="SYSERR_RS_RX_OF" Value="RS Empfangspufferüberlauf"/>
+					<Text TextId="SYSERR_RS_TO" Value="RS Timeout"/>
+					<Text TextId="SYSERR_FB" Value="Genereller PROFINET Fehler"/>
+					<Text TextId="SYSERR_RS_PoFC" Value="RS Parity- oder Frame-Check-Fehler"/>
+					  <!-- Reserved -->
+					<Text TextId="SYSERR_FB_CONF" Value="PROFINET Konfigurationsfehler"/>
+					<Text TextId="SYSERR_FB_OF" Value="PROFINET Pufferüberlauf"/>
+					  <!-- Reserved -->
+					<!--Identification-->
+					<Text TextId="DevName2P" Value="VLX-F231-B17"/>
+					<Text TextId="DevDescription" Value="Gateway von SmartRunner(RS485) auf PROFINET"/>
+					<!-- PDEV/Interface -->
+					<Text TextId="DAP_SS_If" Value="X3"/>
+					<Text TextId="DAP_SS_If_P1" Value="P1"/>
+					<Text TextId="DAP_SS_If_P2" Value="P2"/>
+					<Text TextId="DAP_InterfaceModule" Value="PN Schnittstelle"/>
+					<Text TextId="DAP_If_Port1" Value="Port 1"/>
+					<Text TextId="DAP_If_Port2" Value="Port 2"/>
+					<!--Module category-->
+					<Text TextId="IN Module" Value="Eingangs-Module"/>
+					<Text TextId="OUT Module" Value="Ausgangs-Module"/>
+					<Text TextId="BIDIR Module1" Value="Smart Runner"/>
+					<Text TextId="Other Module" Value="Other modules"/>
+					<!--Modules-->
+					<Text TextId="BIDIR1" Value="Head Address"/>
+					<Text TextId="IDT_Input16" Value="IN Result Data"/>
+					<Text TextId="IDT_Input8" Value="IN Result Teach"/>
+					<Text TextId="IDT_Output_Trigger" Value="OUT Trigger (2Byte)"/>
+					<Text TextId="IDT_Output_Teach" Value="OUT Teach (2Byte)"/>
+					<Text TextId="IDT_Output_Profil" Value="OUT Choose Profil (2Byte)"/>
+				</Language>
+			</ExternalTextList>
+		</ApplicationProcess>
+	</ProfileBody>
+</ISO15745Profile>
